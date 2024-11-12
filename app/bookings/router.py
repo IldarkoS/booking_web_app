@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 
 from app.database import async_session_maker
 from app.bookings.DAL import BookingsDAL
@@ -13,6 +13,5 @@ router = APIRouter(
 
 
 @router.get("")
-async def get_bookings() -> list[SBookings]:
-    async with async_session_maker() as session:
-        return await BookingsDAL.get_all()
+async def get_bookings(request: Request): #-> list[SBookings]:
+    return await BookingsDAL.get_all()
