@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 from datetime import date
+from typing import List, Optional
 
 class SBookings(BaseModel):
     id: int 
@@ -14,5 +15,15 @@ class SBookings(BaseModel):
     class Config:
         orm_mode = True
 
-class SBookingsResponse(BaseModel):
-    Bookings: SBookings = Field()
+# class SBookingsResponse(BaseModel):
+#     Bookings: SBookings = Field()
+
+
+class SBookingsInfo(SBookings):
+    image_id: int
+    name: str
+    description: Optional[str]
+    services: List[str]
+
+    class Config:
+        orm_mode = True
