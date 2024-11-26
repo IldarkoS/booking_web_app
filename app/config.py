@@ -15,6 +15,11 @@ class Settings(BaseSettings):
     SECRET_KEY : str
     ALGORITHM : str
 
+
+    '''Redis'''
+    REDIS_HOST : str
+    REDIS_PORT : int
+
 settings = Settings()
 
 settings.__dict__['DATABASE_URL'] = f"postgresql+asyncpg://{settings.DB_USER}:{settings.DB_PASS}@{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}"

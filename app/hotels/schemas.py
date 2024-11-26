@@ -11,7 +11,7 @@ class SHotels(BaseModel):
     image_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class SHotelsInfo(SHotels):
@@ -24,7 +24,7 @@ class SHotelsInfo(SHotels):
     rooms_left: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class SRooms(BaseModel):
@@ -38,11 +38,11 @@ class SRooms(BaseModel):
     image_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class SRoomsInfo(SRooms):
     total_cost: int
     rooms_left: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request, Depends, HTTPException, status
+from fastapi import APIRouter, Request, Depends, HTTPException, status, Response
 from datetime import date
 
 from app.database import async_session_maker
@@ -36,7 +36,7 @@ async def add_booking(
         return booking
 
 
-@router.delete("/{id}")
+@router.delete("/{id}", status_code=204)
 async def delete_booking(
     booking_id: int,
     user: Users = Depends(get_current_user)

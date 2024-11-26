@@ -13,7 +13,7 @@ class SBookings(BaseModel):
     total_days: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # class SBookingsResponse(BaseModel):
 #     Bookings: SBookings = Field()
@@ -26,4 +26,4 @@ class SBookingsInfo(SBookings):
     services: List[str]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
